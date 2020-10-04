@@ -9,7 +9,7 @@ export class TictactoeComponent implements OnInit {
 
   isXPlayer: Boolean = true
   gameStatus: String = "playing"
-  boardGame: String[] = [
+  boardGame: String[][] = [
     ['', '', ''],
     ['', '', ''],
     ['', '', ''],
@@ -24,10 +24,13 @@ export class TictactoeComponent implements OnInit {
   showMe(event) {
     // Update boardGame
     let target = event.target.id
-    this.boardGame[target[0]][target[1]] = this.isXPlayer ? "X" : "O"
+    let boardCell = this.boardGame[target[0]][target[1]]
 
-    // change currentPlayer
-    this.isXPlayer = !this.isXPlayer
+    if (boardCell == '') {
+      this.boardGame[target[0]][target[1]] = this.isXPlayer ? "X" : "O"
+      this.isXPlayer = !this.isXPlayer
+    }
+
   }
 
 }
