@@ -7,9 +7,12 @@
         <p>
             <b>Game Status:</b> {{gameStatus}}
         </p>
+        <p>
+            <button class="reset" (click)="resetGame()">Reset Game</button>
+        </p>
     </div>
 
-    <div class="board">
+    <div class="board" id="board">
         <div class="board-item" (click)="showMe($event)" id="00">
             {{boardGame[0][0]}}
         </div>
