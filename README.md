@@ -1,27 +1,40 @@
-# Tictactoe
+# TicTacToe
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
+A TicTacToe game created using Angualar 10, as part of Front End bootcamp of IGTI.
 
-## Development server
+## Technologies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![Badge](https://img.shields.io/static/v1?label=structure&message=HTML5&color=E34F26&style=flat)
+![Badge](https://img.shields.io/static/v1?label=style&message=CSS3&color=1572B6&style=flat)
+![Badge](https://img.shields.io/static/v1?label=logic&message=TypeScript&color=007ACC&style=flat)
+![Badge](https://img.shields.io/static/v1?label=framework&message=Angular+10&color=DD0031&style=flat)
 
-## Code scaffolding
+## Preview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![TicTactoe Screenshot](tictactoe.gif)
 
-## Build
+## Goals
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Create the board values with Angular
+- Display the game status
+- Verify winners each move
+- Allow to reset the game
 
-## Running unit tests
+## How it works
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The main structure of the project is inside `./src/app/core` folder. The `core` is an Angular component with all logic of the game.
 
-## Running end-to-end tests
+The component is divided into three files: the html structure, the css style and the typescript logic.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+The game controllers are defined at the top, with these parameters:
 
-## Further help
+- `isXPlayer`: it is a boolean variable that checks if the current player is the `X` or the `O`
+- `moves`: count how many moves are made, with a maximum of 9 moves each match
+- `gameStatus`: default status is `playing`. It changes to `Player X`, when the player `X` wins the game. Otherwise, display `No Winners`
+- `boardGame`: its an array with all game cells
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Every time the user click on a div, three cases are verified:
+
+- If already has a winner `if (this.checkWinner())`
+- If more moves are allowed `else if (this.moves === 9)`
+- Other, wise the game continue
